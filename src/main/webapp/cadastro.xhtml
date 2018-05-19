@@ -16,33 +16,28 @@
 	<h:form>
 		<!-- <p:commandButton value="Inicio" action="/publico/index.xhtml" /><br /> -->
 		<div align="center">
+		
 			<p:panelGrid columns="4" >
 				<f:facet name="header">
 					<p:outputLabel value="Cadastro de bens" />
-				</f:facet>	
+				</f:facet>
 				<p:outputLabel value="Nome" />
-				<p:inputText value="#{pessoaCtrl.pessoa.id}" />
+				<p:inputText value="#{bemMB.bem.nome}" />
 				<p:outputLabel value="Data aquisição" />
-				<p:calendar id="button1" value="#{pessoaCtrl.pessoa.data}"
-					showOn="button">
-					<f:convertDateTime dateStyle="default" />
-				</p:calendar>
+				<p:inputMask value="#{bemMB.bem.dt_adiquicao}" mask="99/99/9999">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
 				<p:outputLabel value="Valor aquisição" />
-				<p:inputText value="#{pessoaCtrl.pessoa.cpf}" />
+				<p:inputText value="#{bemMB.bem.valor_compra}" />
 				<p:outputLabel value="Usado" />
-				<p:inputText value="#{pessoaCtrl.pessoa.rg}" />
+				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Vida útil" />
-				<p:inputText value="#{pessoaCtrl.pessoa.rua}" />
+				<p:inputText value="#{bemMB.bem.vida_util}" />
 				<p:outputLabel value="Turno" />
-				<p:selectOneMenu value="#{mbCarro.cor}">
-					<f:selectItem itemValue="1" itemLabel="1" />
-					<f:selectItem itemValue="2" itemLabel="2" />
-					<f:selectItem itemValue="3" itemLabel="3" />
-				</p:selectOneMenu>
-
+				<p:inputText value="#{bemMB.bem.turno}" />
 			</p:panelGrid>
 			<br />
-			<p:commandButton value="Gravar" action="#{pessoaCtrl.actionGravar}" />
+			<p:commandButton value="Gravar" action="#{bemMB.actionGravar}" />
 		</div>
 	</h:form>
 </h:body>

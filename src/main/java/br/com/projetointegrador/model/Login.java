@@ -7,13 +7,13 @@ public class Login implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private static Long id;
 	private String login;
 	private String nome;
 	private String senha;
 	private static Double certo;
 	
-	public Long getId() {
+	public static Long getId() {
 		return id;
 	}
 	

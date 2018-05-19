@@ -19,6 +19,7 @@ public class Bem implements Serializable {
 	private Double usado;
 	private Long id_usuario;
 	
+	
 	public Long getId() {
 		return id;
 	}

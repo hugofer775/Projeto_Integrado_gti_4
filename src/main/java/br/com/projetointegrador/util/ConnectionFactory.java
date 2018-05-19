@@ -12,18 +12,36 @@ public class ConnectionFactory implements Serializable {
 	private static final String DRIVER = "org.postgresql.Driver";
 	private static final String URL = "jdbc:postgresql://localhost:5432/db_projetointegrador";
 	private static final String USER = "postgres";
-	private static final String PASSWORD = "root";
-	
-	public static Connection getConnection() {
+	private static final String SENHA = "root";
+
+	public static Connection open() {
 		try {
 			Class.forName(DRIVER);
-			return DriverManager.getConnection(URL, USER, PASSWORD);
-		} catch(Exception e) {
-			System.err.println("----------------");
-			System.err.println("Erro na conexão");
-			e.printStackTrace();
+			return DriverManager.getConnection(URL, USER, SENHA);
+		} catch (Exception e) {
+
 		}
 		return null;
-		
+	}
+
+	public void close(Connection con, Statement st, ResultSet rs) {
+		closeConnection(null, st, rs);
+	}
+
+	public void close(Connection con, Statement st) {
+		closeConnection(null, st, null);
+	}
+
+	private void closeConnection(Connection con, Statement st, ResultSet rs) {
+		try {
+			if (rs != null)
+				rs.close();
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

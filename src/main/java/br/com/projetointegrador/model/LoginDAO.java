@@ -14,7 +14,7 @@ public class LoginDAO extends ConnectionFactory {
 	
 	public String getLogin(String login, String senha) {
 		try {
-			Connection con = getConnection();
+			Connection con = open();
 			String sql = "SELECT id, login, senha FROM usuario WHERE login = ? AND senha = ?";
             PreparedStatement instrucao = con.prepareStatement(sql);
             instrucao.setString(1, login);
@@ -35,6 +35,7 @@ public class LoginDAO extends ConnectionFactory {
 			System.err.println();
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 	
