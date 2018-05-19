@@ -44,4 +44,40 @@ public class BemDAO extends ConnectionFactory {
 			close(con, ps);
 		}
 	}
+	
+	public List<Bem> selectAll(){
+		List<Bem> lsBem = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, id_usuario FROM bem";
+		
+		try {
+			con = open();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			lsBem = new ArrayList<Bem>();
+			while (rs.next()) {
+				Bem e = new Bem();
+				e.setId(rs.getLong("id"));
+				e.setNome(rs.getString("nome"));
+				e.setDt_adiquicao(rs.getDate("dt_adiquicao"));
+				e.setValor_compra(rs.getDouble("valor_compra"));
+				e.setTurno(rs.getInt("turno"));
+				e.setVida_util(rs.getInt("vida_util"));
+				e.setDt_venda(rs.getDate("dt_venda"));
+				e.setValor_venda(rs.getDouble("valor_venda"));
+				e.setUsado(rs.getDouble("usado"));
+				e.setId_usuario(rs.getLong("id_usuario"));
+				lsBem.add(e);
+			}
+		} catch (Exception e) {
+			System.err.println("Erro no selectAll do DAO: " + e.getMessage());
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return lsBem;
+	}
 }

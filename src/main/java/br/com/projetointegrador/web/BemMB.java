@@ -16,10 +16,18 @@ public class BemMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Bem bem = new Bem();
+	private List<Bem> listBem = null;
 	
 	public String actionGravar() {
 		new BemRN().gravar(bem);
 		return "relatorio";
+	}
+	
+	public List<Bem> getSelectAll(){
+		if (this.listBem == null) {
+		    this.listBem =  new BemRN().selectAll();
+		}
+		return this.listBem;
 	}
 	
 	public String actionNovo() {

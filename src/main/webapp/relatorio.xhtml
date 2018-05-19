@@ -39,7 +39,7 @@
 			</div>
 			
 			
-			<p:dataTable id="tbl" var="f" value="#{viewPessoa.listagem}"
+			<p:dataTable id="tbl" var="f" value="#{bemMB.selectAll}"
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
 				{PageLinks} {NextPageLink} {LastPageLink}"
 				paginator="true" rows="10" style="margin-bottom:20px">
@@ -54,40 +54,44 @@
 					</p:commandButton>
 				</f:facet>
 				
-				<p:column headerText="Nome" sortBy="f.id">
-					<h:outputText value="#{f.id}"/>
-				</p:column>
-				
-				<p:column headerText="Data aquição" sortBy="f.nome">
+				<p:column headerText="Nome" sortBy="f.nome">
 					<h:outputText value="#{f.nome}"/>
 				</p:column>
 				
-				<p:column headerText="Valor aquição" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Data aquição" sortBy="f.dt_adiquicao">
+					<h:outputText value="#{f.dt_adiquicao}"/>
 				</p:column>
 				
-				<p:column headerText="Turno" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Valor aquição" sortBy="f.valor_compra">
+					<h:outputText value="#{f.valor_compra}"/>
 				</p:column>
 				
-				<p:column headerText="Vida Util" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Turno" sortBy="f.turno">
+					<h:outputText value="#{f.turno}"/>
 				</p:column>
 				
-				<p:column headerText="Data da Baixa" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Vida Util" sortBy="f.vida_util">
+					<h:outputText value="#{f.vida_util}"/>
 				</p:column>
 				
-				<p:column headerText="Valor de venda" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Data da Baixa" sortBy="f.dt_venda">
+					<h:outputText value="#{f.dt_venda}"/>
 				</p:column>
 				
-				<p:column headerText="DA" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Valor de venda" sortBy="f.valor_venda">
+					<h:outputText value="#{f.valor_venda}"/>
 				</p:column>
 				
-				<p:column headerText="VC" sortBy="f.cpf">
-					<h:outputText value="#{f.cpf}"/>
+				<p:column headerText="Usado" sortBy="f.usado">
+					<h:outputText value="#{f.usado}"/>
+				</p:column>
+				
+				<p:column headerText="DA" sortBy="f.usado">
+					<h:outputText value="#{f.usado}"/>
+				</p:column>
+				
+				<p:column headerText="VC" sortBy="f.usado">
+					<h:outputText value="#{f.usado}"/>
 				</p:column>
 				
 							
