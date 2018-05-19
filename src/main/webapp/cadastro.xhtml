@@ -29,15 +29,16 @@
 				</p:calendar>
 				<p:outputLabel value="Valor aquisição" />
 				<p:inputText value="#{pessoaCtrl.pessoa.cpf}" />
-				<p:outputLabel value="Valor de venda" />
+				<p:outputLabel value="Usado" />
 				<p:inputText value="#{pessoaCtrl.pessoa.rg}" />
-				<p:outputLabel value="Data da venda" />
-				<p:calendar id="button" value="#{pessoaCtrl.pessoa.data}"
-					showOn="button">
-					<f:convertDateTime dateStyle="default" />
-				</p:calendar>
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{pessoaCtrl.pessoa.rua}" />
+				<p:outputLabel value="Turno" />
+				<p:selectOneMenu value="#{mbCarro.cor}">
+					<f:selectItem itemValue="1" itemLabel="1" />
+					<f:selectItem itemValue="2" itemLabel="2" />
+					<f:selectItem itemValue="3" itemLabel="3" />
+				</p:selectOneMenu>
 
 			</p:panelGrid>
 			<br />
