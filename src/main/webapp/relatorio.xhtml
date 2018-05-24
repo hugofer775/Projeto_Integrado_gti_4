@@ -86,12 +86,12 @@
 					<h:outputText value="#{f.usado}"/>
 				</p:column>
 				
-				<p:column headerText="DA" sortBy="f.usado">
-					<h:outputText value="#{f.usado}"/>
+				<p:column headerText="DA" sortBy="f.da">
+					<h:outputText value="#{f.da}"/>
 				</p:column>
 				
-				<p:column headerText="VC" sortBy="f.usado">
-					<h:outputText value="#{f.usado}"/>
+				<p:column headerText="VC" sortBy="f.vc">
+					<h:outputText value="#{f.vc}"/>
 				</p:column>
 				
 							
@@ -154,14 +154,15 @@
 						<h:commandLink value="Remover" action="#{viewPessoa.actionExcluirFone(fone)}"/>
 					</h:column>
 					</h:dataTable>					
-					
+					<h:commandButton value="Excluir"
+					action="#{formaPgtoCtrl.actionExcluir}" update="growl"></h:commandButton>
 					<h:commandButton value="Excluir" action="#{viewPessoa.actionExcluir}" update="growl"/>
 					<h:commandButton value="Gravar" action="#{viewPessoa.actionGravar}" update="growl"/>
 					<h:commandButton value="Cancelar" oncomplete="cadDialog.hide()"/>
 					</p:outputPanel>
 					
 					</p:dialog>
-					<a href="index.xhtml" class="btn btn-danger" type="button" style="margin-left: 20px;">Voltar</a>
+					<a href="cadastro.xhtml" class="btn btn-danger" type="button" style="margin-left: 20px;">Voltar</a>
 	</h:form>
 </h:body>
 

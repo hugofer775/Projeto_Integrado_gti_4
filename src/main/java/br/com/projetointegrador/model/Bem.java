@@ -2,7 +2,10 @@ package br.com.projetointegrador.model;
 
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+
+import br.com.projetointegrador.web.BemMB;
 
 public class Bem implements Serializable {
 
@@ -17,7 +20,10 @@ public class Bem implements Serializable {
 	private Date dt_venda;
 	private Double valor_venda;
 	private Double usado;
+	private Double valor_residual;
 	private Long id_usuario;
+	private Double da;
+	private Double vc;
 	
 	
 	public Long getId() {
@@ -80,4 +86,24 @@ public class Bem implements Serializable {
 	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
+	public Double getValor_residual() {
+		return valor_residual;
+	}
+	public void setValor_residual(Double valor_residual) {
+		this.valor_residual = valor_residual;
+	}
+	public Double getDa() {
+		return da;
+	}
+	public void setDa(Double da) {
+		this.da = da;
+	}
+	public Double getVc() {
+		return vc;
+	}
+	public void setVc(Double vc) {
+		this.vc = vc;
+	}
+	
+	
 }

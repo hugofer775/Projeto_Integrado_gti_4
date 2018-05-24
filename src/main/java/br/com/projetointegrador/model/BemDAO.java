@@ -5,7 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.sun.corba.se.impl.ior.GenericTaggedComponent;
 
@@ -17,15 +19,16 @@ public class BemDAO extends ConnectionFactory {
 	
 	public void insert(Bem bem) {
 		
-		String sql = "INSERT INTO bem(nome, dt_adiquicao, valor_compra, turno, vida_util, usado, id_usuario)" + 
-				"VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO bem(nome, dt_adiquicao, valor_compra, turno, vida_util, usado, valor_residual, id_usuario)" + 
+				"VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Connection con = open();
 		PreparedStatement ps = null;
 		try {
 			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, bem.getNome());
-			ps.setDate(2, new java.sql.Date(bem.getDt_adiquicao().getTime()));
+			TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo")); 
+			ps.setDate(2, new java.sql.Date(bem.getDt_adiquicao().getTime() + 1));
 			System.err.println("aqui2");
 			ps.setDouble(3, bem.getValor_compra());
 			System.err.println("aqui3");
@@ -33,7 +36,8 @@ public class BemDAO extends ConnectionFactory {
 			ps.setInt(5, bem.getVida_util());
 			System.err.println("aqui2");
 			ps.setDouble(6, bem.getUsado());
-			ps.setLong(7, Login.getId());
+			ps.setDouble(7, bem.getValor_residual());
+			ps.setLong(8, Login.getId());
 			System.err.println("aqui");
 			ps.executeUpdate();
 			System.err.println("dsds");
@@ -50,7 +54,7 @@ public class BemDAO extends ConnectionFactory {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, id_usuario FROM bem";
+		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, valor_residual, id_usuario FROM bem";
 		
 		try {
 			con = open();
@@ -68,7 +72,10 @@ public class BemDAO extends ConnectionFactory {
 				e.setDt_venda(rs.getDate("dt_venda"));
 				e.setValor_venda(rs.getDouble("valor_venda"));
 				e.setUsado(rs.getDouble("usado"));
+				e.setValor_residual(rs.getDouble("valor_residual"));
 				e.setId_usuario(rs.getLong("id_usuario"));
+				//BemDAO.da(rs.getDate("dt_adiquicao"), rs.getDate("dt_venda") );
+				BemRN.da(e);
 				lsBem.add(e);
 			}
 		} catch (Exception e) {
@@ -80,4 +87,113 @@ public class BemDAO extends ConnectionFactory {
 		
 		return lsBem;
 	}
+	
+	public static int da(Date compra, Date venda) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(compra);
+		int count = 0;
+		
+		Calendar v = Calendar.getInstance();
+			
+		if(venda != null) {
+		
+		v.setTime(venda);
+		
+		int dia = c.get(Calendar.DAY_OF_MONTH);
+		
+		int mes = c.get(Calendar.MONTH);
+		
+		int ano = c.get(Calendar.YEAR);
+		
+		int dia2 = v.get(Calendar.DAY_OF_MONTH);
+
+		int mes2 = v.get(Calendar.MONTH);
+		
+		int ano2 = v.get(Calendar.YEAR);
+		
+		if(dia <= 15 ) {
+			count = count + 1;
+			System.out.println(count);
+		}
+		
+		else {
+			count = count;
+		}
+		
+		count = count + ((12 - 1) - mes);
+		System.out.println(count);
+		
+		int calano = ((ano2 - 1) - ano) * 12;
+		
+		count = count + calano;
+		System.out.println(count);
+		
+		if(dia2 > 15) {
+			count = count + 1;
+			System.out.println(count);
+			
+		}
+		else {
+			count = count;
+			System.out.println(count);
+			
+		}
+		
+		count = count + mes2;
+		System.out.println(count);
+		
+		//System.err.println(count);
+		return count;
+		}
+		else {
+			v = Calendar.getInstance();
+			
+			int dia = c.get(Calendar.DAY_OF_MONTH);
+			
+			int mes = c.get(Calendar.MONTH);
+			
+			int ano = c.get(Calendar.YEAR);
+			
+			int dia2 = v.get(Calendar.DAY_OF_MONTH);
+
+			int mes2 = v.get(Calendar.MONTH);
+			
+			int ano2 = v.get(Calendar.YEAR);
+			
+			if(dia <= 15 ) {
+				count = count + 1;
+				System.out.println(count);
+			}
+			
+			else {
+				count = count;
+			}
+			
+			count = count + ((12 - 1) - mes);
+			System.out.println(count);
+			
+			int calano = ((ano2 - 1) - ano) * 12;
+			
+			count = count + calano;
+			System.out.println(count);
+			
+			if(dia2 > 15) {
+				count = count + 1;
+				System.out.println(count);
+				
+			}
+			else {
+				count = count;
+				System.out.println(count);
+				
+			}
+			
+			count = count + mes2;
+			System.out.println(count);
+			
+			//System.err.println(count);
+			return count;
+		}
+	}
 }
+					

@@ -1,4 +1,4 @@
-CREATE DATABASE bd_projetointegrador;
+CREATE DATABASE db_projetointegrador;
 
 CREATE TABLE usuario(
     id          	SERIAL PRIMARY KEY,
@@ -16,6 +16,7 @@ CREATE TABLE bem(
 	vida_util 		INT NOT NULL,
 	dt_venda 		DATE,
 	valor_venda 	FLOAT,
-	usado 			FLOAT
+	usado 			FLOAT,
+	valor_residual 	FLOAT,
 	id_usuario  	INT NOT NULL REFERENCES usuario(id)
 );
