@@ -24,9 +24,7 @@
 				<p:outputLabel value="Nome" />
 				<p:inputText value="#{bemMB.bem.nome}" />
 				<p:outputLabel value="Data aquisição" />
-				<p:inputMask value="#{bemMB.bem.dt_adiquicao}" mask="99/99/9999">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-				</p:inputMask>
+				<p:calendar value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
 				<p:outputLabel value="Valor aquisição" />
 				<p:inputText id="valor_compra" maxlength="7" size="10" value="#{bemMB.bem.valor_compra}" required="true"
 						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
