@@ -134,11 +134,24 @@ public class BemRN {
 		
 		System.out.println(da);
 		
+		double prv_bug = bem.getVida_util() * 12;
+		
+		if(prv_bug > count) {
+			bem.setDa(calvl_residual);
+		}
+		else {
+		
 		bem.setDa(da);
+		}
 		
 		double vc = bem.getValor_compra() - da;
 		
+		if(prv_bug < count) {
+			bem.setVc(calvl_residual);
+		}
+		else {
 		bem.setVc(vc);
+		}
 				
 		return null;
 		}
@@ -152,11 +165,25 @@ public class BemRN {
 			
 			System.out.println(da);
 			
+			double prv_bug = bem.getVida_util() * 12;
+			
+			if(prv_bug < count) {
+				bem.setDa(calvl_residual);
+			}
+			else {
+			
 			bem.setDa(da);
+			}
 			
 			double vc = bem.getValor_compra() - da;
 			
+			if(prv_bug < count) {
+				bem.setVc(calvl_residual);
+			}
+			else {
 			bem.setVc(vc);
+			}
+				
 					
 			return null;
 			}
@@ -169,14 +196,28 @@ public class BemRN {
 			
 			System.out.println(da);
 			
+			double prv_bug = bem.getVida_util() * 12;
+			System.out.println(prv_bug);
+			
+			if(prv_bug < count) {
+				bem.setDa(calvl_residual);
+				
+			}
+			else {
+			
 			bem.setDa(da);
+			}
 			
 			double vc = bem.getValor_compra() - da;
 			
+			if(prv_bug < count) {
+				bem.setVc(calvl_residual);
+			}
+			else {
 			bem.setVc(vc);
+			}
 					
 			return null;
 		}
 	}
 }
-
