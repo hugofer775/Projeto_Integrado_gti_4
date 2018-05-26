@@ -53,7 +53,7 @@
 				</p:column>
 				
 				<p:column headerText="Valor aquição" sortBy="f.valor_compra">
-					<h:outputText value="#{f.valor_compra}"/>
+					<h:outputText value="R$ #{f.valor_compra}"/>
 				</p:column>
 				
 				<p:column headerText="Turno" sortBy="f.turno">
@@ -61,7 +61,15 @@
 				</p:column>
 				
 				<p:column headerText="Vida Util" sortBy="f.vida_util">
-					<h:outputText value="#{f.vida_util}"/>
+					<h:outputText value="#{f.vida_util} anos"/>
+				</p:column>
+				
+				<p:column headerText="Usado" sortBy="f.usado">
+					<h:outputText value="#{f.usado}"/>
+				</p:column>
+				
+				<p:column headerText="Porcentagem Residual" sortBy="f.valor_residual">
+					<h:outputText value="#{f.valor_residual} %"/>
 				</p:column>
 				
 				<p:column headerText="Data da Baixa" sortBy="f.dt_venda">
@@ -69,19 +77,16 @@
 				</p:column>
 				
 				<p:column headerText="Valor de venda" sortBy="f.valor_venda">
-					<h:outputText value="#{f.valor_venda}"/>
+					<h:outputText value="R$ #{f.valor_venda}"/>
 				</p:column>
 				
-				<p:column headerText="Usado" sortBy="f.usado">
-					<h:outputText value="#{f.usado}"/>
-				</p:column>
 				
 				<p:column headerText="DA" sortBy="f.da">
-					<h:outputText value="#{f.da}"/>
+					<h:outputText value="R$ #{f.da}"/>
 				</p:column>
 				
 				<p:column headerText="VC" sortBy="f.vc">
-					<h:outputText value="#{f.vc}"/>
+					<h:outputText value="R$ #{f.vc}"/>
 				</p:column>
 				
 							

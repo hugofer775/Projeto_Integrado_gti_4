@@ -33,9 +33,9 @@ public class BemDAO extends ConnectionFactory {
 			ps.setDouble(3, bem.getValor_compra());
 			System.err.println("aqui3");
 			ps.setInt(4, bem.getTurno());
-			ps.setDouble(5, bem.getVida_util());
+			ps.setInt(5, bem.getVida_util());
 			System.err.println("aqui2");
-			ps.setDouble(6, bem.getUsado());
+			ps.setInt(6, bem.getUsado());
 			ps.setDouble(7, bem.getValor_residual());
 			ps.setLong(8, Login.getId());
 			System.err.println("aqui");
@@ -54,7 +54,7 @@ public class BemDAO extends ConnectionFactory {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, valor_residual, id_usuario FROM bem";
+		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, valor_residual, id_usuario FROM bem ORDER BY id";
 		
 		try {
 			con = open();
@@ -68,10 +68,10 @@ public class BemDAO extends ConnectionFactory {
 				e.setDt_adiquicao(rs.getDate("dt_adiquicao"));
 				e.setValor_compra(rs.getDouble("valor_compra"));
 				e.setTurno(rs.getInt("turno"));
-				e.setVida_util(rs.getDouble("vida_util"));
+				e.setVida_util(rs.getInt("vida_util"));
 				e.setDt_venda(rs.getDate("dt_venda"));
 				e.setValor_venda(rs.getDouble("valor_venda"));
-				e.setUsado(rs.getDouble("usado"));
+				e.setUsado(rs.getInt("usado"));
 				e.setValor_residual(rs.getDouble("valor_residual"));
 				e.setId_usuario(rs.getLong("id_usuario"));
 				//BemDAO.da(rs.getDate("dt_adiquicao"), rs.getDate("dt_venda") );
@@ -115,112 +115,6 @@ public class BemDAO extends ConnectionFactory {
 		}
 	}
 	
-	public static int da(Date compra, Date venda) {
-		Calendar c = Calendar.getInstance();
-		c.setTime(compra);
-		int count = 0;
-		
-		Calendar v = Calendar.getInstance();
-			
-		if(venda != null) {
-		
-		v.setTime(venda);
-		
-		int dia = c.get(Calendar.DAY_OF_MONTH);
-		
-		int mes = c.get(Calendar.MONTH);
-		
-		int ano = c.get(Calendar.YEAR);
-		
-		int dia2 = v.get(Calendar.DAY_OF_MONTH);
-
-		int mes2 = v.get(Calendar.MONTH);
-		
-		int ano2 = v.get(Calendar.YEAR);
-		
-		if(dia <= 15 ) {
-			count = count + 1;
-			System.out.println(count);
-		}
-		
-		else {
-			count = count;
-		}
-		
-		count = count + ((12 - 1) - mes);
-		System.out.println(count);
-		
-		int calano = ((ano2 - 1) - ano) * 12;
-		
-		count = count + calano;
-		System.out.println(count);
-		
-		if(dia2 > 15) {
-			count = count + 1;
-			System.out.println(count);
-			
-		}
-		else {
-			count = count;
-			System.out.println(count);
-			
-		}
-		
-		count = count + mes2;
-		System.out.println(count);
-		
-		//System.err.println(count);
-		return count;
-		}
-		else {
-			v = Calendar.getInstance();
-			
-			int dia = c.get(Calendar.DAY_OF_MONTH);
-			
-			int mes = c.get(Calendar.MONTH);
-			
-			int ano = c.get(Calendar.YEAR);
-			
-			int dia2 = v.get(Calendar.DAY_OF_MONTH);
-
-			int mes2 = v.get(Calendar.MONTH);
-			
-			int ano2 = v.get(Calendar.YEAR);
-			
-			if(dia <= 15 ) {
-				count = count + 1;
-				System.out.println(count);
-			}
-			
-			else {
-				count = count;
-			}
-			
-			count = count + ((12 - 1) - mes);
-			System.out.println(count);
-			
-			int calano = ((ano2 - 1) - ano) * 12;
-			
-			count = count + calano;
-			System.out.println(count);
-			
-			if(dia2 > 15) {
-				count = count + 1;
-				System.out.println(count);
-				
-			}
-			else {
-				count = count;
-				System.out.println(count);
-				
-			}
-			
-			count = count + mes2;
-			System.out.println(count);
-			
-			//System.err.println(count);
-			return count;
-		}
-	}
+	
 }
 					

@@ -37,8 +37,8 @@ public class BemRN {
 		int count = 0;
 		Double valor_taxa = null;
 		
-		Double usa = bem.getVida_util() - bem.getUsado();
-		Double vu = bem.getVida_util() / 2;
+		Double usa = (double) (bem.getVida_util() - bem.getUsado());
+		Double vu = (double) (bem.getVida_util() / 2);
 		
 		if(usa > vu) {
 			valor_taxa = usa;
@@ -47,7 +47,7 @@ public class BemRN {
 			valor_taxa = vu;
 		}
 		if(bem.getUsado()  == 0) {
-			valor_taxa = bem.getVida_util();
+			valor_taxa = (double) bem.getVida_util();
 		}
 		
 		System.out.println(valor_taxa);
@@ -162,9 +162,11 @@ public class BemRN {
 		System.out.println(da);
 		
 		double prv_bug = bem.getVida_util() * 12;
+		System.out.println(prv_bug);
 		
-		if(prv_bug > count) {
+		if(prv_bug < count) {
 			bem.setDa(calvl_residual);
+			
 		}
 		else {
 		
