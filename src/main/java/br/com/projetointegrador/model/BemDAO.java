@@ -115,6 +115,22 @@ public class BemDAO extends ConnectionFactory {
 		}
 	}
 	
+	public void delete(Bem bem) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = "DELETE FROM bem WHERE id = ?";
+		try {
+			con = open();
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, bem.getId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			System.err.println("Erro no delete do DAO: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			close(con, ps);
+		}
+	}
 	
 }
 					

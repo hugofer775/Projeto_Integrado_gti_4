@@ -17,13 +17,19 @@ public class BemRN {
 			}
 	}
 	
+	public void excluir(Bem bem) {
+		new BemDAO().delete(bem);
+	}
+	
+	
+	
 	public void update(Bem bem) {
 		if (bem.getId() == null) {
 			new BemDAO().insert(bem);
 		} else {
 			new BemDAO().update(bem);
 		}
-}
+	}
 	
 	public List<Bem> selectAll() {
 		return new BemDAO().selectAll();

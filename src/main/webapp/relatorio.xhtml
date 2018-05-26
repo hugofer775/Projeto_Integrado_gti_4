@@ -11,6 +11,7 @@
 	<title>Lista de Bens</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	
 </h:head>
 <h:body>
 			    
@@ -88,12 +89,18 @@
 				<p:column headerText="VC" sortBy="f.vc">
 					<h:outputText value="R$ #{f.vc}"/>
 				</p:column>
-				
 							
 				<p:column>
 			    <h:commandLink value="editar" action="atualiza2">
 			    <f:setPropertyActionListener value="#{f}" 
 			    target="#{bemMB.bem}"/>
+			    </h:commandLink>
+				</p:column>
+				
+				<p:column>
+			    <h:commandLink value="excluir" action="#{bemMB.actionExcluir}">
+			    <f:setPropertyActionListener value="#{f.id}" 
+			    target="#{bemMB.bem.id}"/>
 			    </h:commandLink>
 				</p:column>
 				</p:dataTable>

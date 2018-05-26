@@ -28,6 +28,12 @@ public class BemMB implements Serializable {
 		return "relatorio";
 	}
 	
+	public String actionExcluir() {
+		new BemRN().excluir(bem);
+		this.listBem = null;
+		return "relatorio";
+	}
+	
 	public List<Bem> getSelectAll(){
 		if (this.listBem == null) {
 		    this.listBem =  new BemRN().selectAll();
