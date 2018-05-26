@@ -10,8 +10,20 @@ import br.com.projetointegrador.web.BemMB;
 public class BemRN {
 	
 	public void gravar(Bem bem) {
-			new BemDAO().insert(bem);
+			if (bem.getId() == null) {
+				new BemDAO().insert(bem);
+			} else {
+				new BemDAO().update(bem);
+			}
 	}
+	
+	public void update(Bem bem) {
+		if (bem.getId() == null) {
+			new BemDAO().insert(bem);
+		} else {
+			new BemDAO().update(bem);
+		}
+}
 	
 	public List<Bem> selectAll() {
 		return new BemDAO().selectAll();
@@ -23,7 +35,22 @@ public class BemRN {
 		Date compra = (Date) bem.getDt_adiquicao();
 		c.setTime(compra);
 		int count = 0;
+		Double valor_taxa = null;
 		
+		Double usa = bem.getVida_util() - bem.getUsado();
+		Double vu = bem.getVida_util() / 2;
+		
+		if(usa > vu) {
+			valor_taxa = usa;
+		}
+		if(usa < vu) {
+			valor_taxa = vu;
+		}
+		if(bem.getUsado()  == 0) {
+			valor_taxa = bem.getVida_util();
+		}
+		
+		System.out.println(valor_taxa);
 		
 		Calendar v = Calendar.getInstance();
 			
@@ -126,7 +153,7 @@ public class BemRN {
 		}
 		
 		if(bem.getTurno()== 2) {
-		double taxa = (100/ bem.getVida_util()) * 1.5;
+		double taxa = (100/ valor_taxa) * 1.5;
 		System.out.println(taxa);
 		double calvl_residual = bem.getValor_compra() * (bem.getValor_residual() /100);
 		System.out.println(calvl_residual);
@@ -157,7 +184,7 @@ public class BemRN {
 		}
 		
 		if(bem.getTurno()== 3) {
-			double taxa = (100/ bem.getVida_util()) * 2;
+			double taxa = (100/ valor_taxa) * 2;
 			System.out.println(taxa);
 			double calvl_residual = bem.getValor_compra() * (bem.getValor_residual() /100);
 			System.out.println(calvl_residual);
@@ -188,7 +215,7 @@ public class BemRN {
 			return null;
 			}
 		else {
-			double taxa = 100/ bem.getVida_util();
+			double taxa = 100/ valor_taxa;
 			System.out.println(taxa);
 			double calvl_residual = bem.getValor_compra() * (bem.getValor_residual() /100);
 			System.out.println(calvl_residual);

@@ -28,12 +28,12 @@ public class BemDAO extends ConnectionFactory {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, bem.getNome());
 			TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo")); 
-			ps.setDate(2, new java.sql.Date(bem.getDt_adiquicao().getTime() + 1));
+			ps.setDate(2, new java.sql.Date(bem.getDt_adiquicao().getTime()));
 			System.err.println("aqui2");
 			ps.setDouble(3, bem.getValor_compra());
 			System.err.println("aqui3");
 			ps.setInt(4, bem.getTurno());
-			ps.setInt(5, bem.getVida_util());
+			ps.setDouble(5, bem.getVida_util());
 			System.err.println("aqui2");
 			ps.setDouble(6, bem.getUsado());
 			ps.setDouble(7, bem.getValor_residual());
@@ -68,7 +68,7 @@ public class BemDAO extends ConnectionFactory {
 				e.setDt_adiquicao(rs.getDate("dt_adiquicao"));
 				e.setValor_compra(rs.getDouble("valor_compra"));
 				e.setTurno(rs.getInt("turno"));
-				e.setVida_util(rs.getInt("vida_util"));
+				e.setVida_util(rs.getDouble("vida_util"));
 				e.setDt_venda(rs.getDate("dt_venda"));
 				e.setValor_venda(rs.getDouble("valor_venda"));
 				e.setUsado(rs.getDouble("usado"));
@@ -86,6 +86,33 @@ public class BemDAO extends ConnectionFactory {
 		}
 		
 		return lsBem;
+	}
+	
+	public void update(Bem bem) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = "UPDATE bem SET nome = ?, dt_adiquicao = ?, valor_compra = ?, turno = ?, vida_util = ?, dt_venda = ?, valor_venda = ?, usado = ?, valor_residual = ?" + 
+				"WHERE id = ?";
+		try {
+			con = open();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, bem.getNome());
+			ps.setDate(2, new java.sql.Date(bem.getDt_adiquicao().getTime()));
+			ps.setDouble(3, bem.getValor_compra());
+			ps.setInt(4, bem.getTurno());
+			ps.setDouble(5, bem.getVida_util());
+			ps.setDate(6, new java.sql.Date(bem.getDt_venda().getTime()));
+			ps.setDouble(7, bem.getValor_venda());
+			ps.setDouble(8, bem.getUsado());
+			ps.setDouble(9, bem.getValor_residual());
+			ps.setLong(10, bem.getId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			System.err.println("Erro no insert do DAO: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			close(con, ps);
+		}
 	}
 	
 	public static int da(Date compra, Date venda) {

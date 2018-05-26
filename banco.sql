@@ -13,7 +13,7 @@ CREATE TABLE bem(
 	dt_adiquicao 	DATE NOT NULL,
 	valor_compra 	FLOAT NOT NULL,
     turno 			INT NOT NULL,
-	vida_util 		INT NOT NULL,
+	vida_util 		FLOAT NOT NULL,
 	dt_venda 		DATE,
 	valor_venda 	FLOAT,
 	usado 			FLOAT,

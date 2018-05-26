@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Cadastro de bens</title>
+</h:head>
+<h:body>
+	<ui:insert name="header">
+	</ui:insert>
+	<h:form>
+		<!-- <p:commandButton value="Inicio" action="/publico/index.xhtml" /><br /> -->
+		<div align="center">
+		<h:inputHidden value="#{bemMB.bem.id}" />
+			<p:panelGrid columns="4" >
+				<f:facet name="header">
+					<p:outputLabel value="Cadastro de bens" />
+				</f:facet>
+				
+				<p:outputLabel value="Nome" />
+				<p:inputText value="#{bemMB.bem.nome}" />
+				<p:outputLabel value="Data aquisição" />
+				<p:calendar value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
+				<p:outputLabel value="Valor aquisição" />
+				<p:inputText id="valor_compra" maxlength="7" size="10" value="#{bemMB.bem.valor_compra}" required="true"
+						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
+						validatorMessage="Informe um valor entre 0,01 e 9999999,99 para o campo 'Preço'">
+						<f:validateDoubleRange minimum="0.01" maximum="9999999.99" />
+						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</p:inputText>
+				<p:outputLabel value="Valor residual" />
+				<p:inputText id="valor_residual" maxlength="3" size="3" value="#{bemMB.bem.valor_residual}" required="true"
+						requiredMessage="O campo 'Quantidade' é obrigatório" converterMessage="Informe um valor válido para o campo 'Valor_residual'"
+						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
+						<f:validateLongRange minimum="0" maximum="100" />
+				</p:inputText>
+				<p:outputLabel value="Usado" />
+				<p:inputText value="#{bemMB.bem.usado}" />
+				<p:outputLabel value="Vida útil" />
+				<p:inputText value="#{bemMB.bem.vida_util}" />
+				<p:outputLabel value="Turno" />
+				<p:selectOneMenu value="#{bemMB.bem.turno}">
+					<f:selectItem itemValue="1" itemLabel="1" />
+					<f:selectItem itemValue="2" itemLabel="2" />
+					<f:selectItem itemValue="3" itemLabel="3" />
+				</p:selectOneMenu>
+				<p:outputLabel value="Data venda" />
+				<p:calendar value="#{bemMB.bem.dt_venda}" showOn="button" />
+				<p:outputLabel value="Valor Venda" />
+				<p:inputText value="#{bemMB.bem.valor_venda}" />
+			</p:panelGrid>
+			<br />
+			<p:commandButton value="Gravar" action="#{bemMB.actionUpdate}" />
+		</div>
+	</h:form>
+</h:body>
+
+</html>

@@ -23,6 +23,11 @@ public class BemMB implements Serializable {
 		return "relatorio";
 	}
 	
+	public String actionUpdate() {
+		new BemRN().update(bem);
+		return "relatorio";
+	}
+	
 	public List<Bem> getSelectAll(){
 		if (this.listBem == null) {
 		    this.listBem =  new BemRN().selectAll();
