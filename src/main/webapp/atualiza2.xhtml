@@ -16,6 +16,9 @@
 	<h:form>
 		<!-- <p:commandButton value="Inicio" action="/publico/index.xhtml" /><br /> -->
 		<div align="center">
+		<ui:insert name="header">
+			<ui:include src="/templates/modelo.xhtml" />
+			</ui:insert>
 		<h:inputHidden value="#{bemMB.bem.id}" />
 			<p:panelGrid columns="4" >
 				<f:facet name="header">
@@ -43,16 +46,17 @@
 				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{bemMB.bem.vida_util}" />
+				<p:outputLabel value="Data venda" />
+				<p:calendar value="#{bemMB.bem.dt_venda}" showOn="button" />
+				<p:outputLabel value="Valor Venda" />
+				<p:inputText value="#{bemMB.bem.valor_venda}" />
 				<p:outputLabel value="Turno" />
 				<p:selectOneMenu value="#{bemMB.bem.turno}">
 					<f:selectItem itemValue="1" itemLabel="1" />
 					<f:selectItem itemValue="2" itemLabel="2" />
 					<f:selectItem itemValue="3" itemLabel="3" />
 				</p:selectOneMenu>
-				<p:outputLabel value="Data venda" />
-				<p:calendar value="#{bemMB.bem.dt_venda}" showOn="button" />
-				<p:outputLabel value="Valor Venda" />
-				<p:inputText value="#{bemMB.bem.valor_venda}" />
+				
 			</p:panelGrid>
 			<br />
 			<p:commandButton value="Gravar" action="#{bemMB.actionUpdate}" />

@@ -91,9 +91,10 @@ public class BemDAO extends ConnectionFactory {
 	public void update(Bem bem) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = "UPDATE bem SET nome = ?, dt_adiquicao = ?, valor_compra = ?, turno = ?, vida_util = ?, dt_venda = ?, valor_venda = ?, usado = ?, valor_residual = ?" + 
+		String sql= "UPDATE bem SET nome = ?, dt_adiquicao = ?, valor_compra = ?, turno = ?, vida_util = ?, dt_venda = ?, valor_venda = ?, usado = ?, valor_residual = ?" + 
 				"WHERE id = ?";
-		try {
+		
+		try { 
 			con = open();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, bem.getNome());

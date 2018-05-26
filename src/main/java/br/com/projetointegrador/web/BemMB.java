@@ -24,6 +24,9 @@ public class BemMB implements Serializable {
 	}
 	
 	public String actionUpdate() {
+		if(bem.getTurno() != 0) {
+			bem.setTurno(bem.getTurno());
+		}
 		new BemRN().update(bem);
 		return "relatorio";
 	}

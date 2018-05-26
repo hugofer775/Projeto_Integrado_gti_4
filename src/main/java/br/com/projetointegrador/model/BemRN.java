@@ -24,11 +24,7 @@ public class BemRN {
 	
 	
 	public void update(Bem bem) {
-		if (bem.getId() == null) {
-			new BemDAO().insert(bem);
-		} else {
 			new BemDAO().update(bem);
-		}
 	}
 	
 	public List<Bem> selectAll() {
@@ -170,7 +166,9 @@ public class BemRN {
 		double prv_bug = bem.getVida_util() * 12;
 		System.out.println(prv_bug);
 		
-		if(prv_bug < count) {
+		double p = valor_taxa * 1.5;
+		
+		if(prv_bug < count || p < count) {
 			bem.setDa(calvl_residual);
 			
 		}
@@ -181,7 +179,7 @@ public class BemRN {
 		
 		double vc = bem.getValor_compra() - da;
 		
-		if(prv_bug < count) {
+		if(prv_bug < count || p < count) {
 			bem.setVc(calvl_residual);
 		}
 		else {
@@ -196,14 +194,19 @@ public class BemRN {
 			System.out.println(taxa);
 			double calvl_residual = bem.getValor_compra() * (bem.getValor_residual() /100);
 			System.out.println(calvl_residual);
+			
 			double da = (((bem.getValor_compra() - calvl_residual) * (taxa/ 100))/12)* count;
 			
 			System.out.println(da);
 			
 			double prv_bug = bem.getVida_util() * 12;
+			System.out.println(prv_bug);
 			
-			if(prv_bug < count) {
+			double p = valor_taxa * 2;
+			
+			if(prv_bug < count || p < count) {
 				bem.setDa(calvl_residual);
+				
 			}
 			else {
 			
@@ -212,13 +215,12 @@ public class BemRN {
 			
 			double vc = bem.getValor_compra() - da;
 			
-			if(prv_bug < count) {
+			if(prv_bug < count || p < count) {
 				bem.setVc(calvl_residual);
 			}
 			else {
 			bem.setVc(vc);
 			}
-				
 					
 			return null;
 			}

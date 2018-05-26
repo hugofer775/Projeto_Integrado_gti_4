@@ -16,7 +16,9 @@
 	<h:form>
 		<!-- <p:commandButton value="Inicio" action="/publico/index.xhtml" /><br /> -->
 		<div align="center">
-		
+		<ui:insert name="header">
+			<ui:include src="/templates/modelo.xhtml" />
+		</ui:insert>
 			<p:panelGrid columns="4" >
 				<f:facet name="header">
 					<p:outputLabel value="Cadastro de bens" />

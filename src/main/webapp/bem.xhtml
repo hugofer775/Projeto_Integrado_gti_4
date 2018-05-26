@@ -2,10 +2,10 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p= "http://primefaces.org/ui">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Lista de Bens</title>
@@ -83,32 +83,8 @@
 				<p:column headerText="Valor de venda" sortBy="f.valor_venda">
 					<h:outputText value="R$ #{f.valor_venda}"/>
 				</p:column>
-				
-				
-				<p:column headerText="DA" sortBy="f.da">
-					<h:outputText value="R$ #{f.da}"/>
-				</p:column>
-				
-				<p:column headerText="VC" sortBy="f.vc">
-					<h:outputText value="R$ #{f.vc}"/>
-				</p:column>
-							
-				<p:column>
-			    <h:commandLink value="editar" action="atualiza2">
-			    <f:setPropertyActionListener value="#{f}" 
-			    target="#{bemMB.bem}"/>
-			    </h:commandLink>
-				</p:column>
-				
-				<p:column>
-			    <h:commandLink value="excluir" action="#{bemMB.actionExcluir}">
-			    <f:setPropertyActionListener value="#{f.id}" 
-			    target="#{bemMB.bem.id}"/>
-			    </h:commandLink>
-				</p:column>
 				</p:dataTable>
 					<a href="cadastro.xhtml" class="btn btn-danger" type="button" style="margin-left: 20px;">Voltar</a>
 	</h:form>
 </h:body>
-
 </html>
