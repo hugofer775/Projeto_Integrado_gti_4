@@ -102,7 +102,12 @@ public class BemDAO extends ConnectionFactory {
 			ps.setDouble(3, bem.getValor_compra());
 			ps.setInt(4, bem.getTurno());
 			ps.setDouble(5, bem.getVida_util());
+			
+			if(bem.getDt_venda() != null) {
 			ps.setDate(6, new java.sql.Date(bem.getDt_venda().getTime()));
+			}else {
+				ps.setDate(6, (Date) bem.getDt_venda());
+			}
 			ps.setDouble(7, bem.getValor_venda());
 			ps.setDouble(8, bem.getUsado());
 			ps.setDouble(9, bem.getValor_residual());

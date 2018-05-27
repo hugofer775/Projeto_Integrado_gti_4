@@ -34,7 +34,7 @@
 						<f:validateDoubleRange minimum="0.01" maximum="9999999.99" />
 						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
 					</p:inputText>
-				<p:outputLabel value="Valor residual" />
+				<p:outputLabel value="(%) residual" />
 				<p:inputText id="valor_residual" maxlength="3" size="3" value="#{bemMB.bem.valor_residual}" required="true"
 						requiredMessage="O campo 'Quantidade' é obrigatório" converterMessage="Informe um valor válido para o campo 'Valor_residual'"
 						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
