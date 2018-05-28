@@ -208,7 +208,7 @@ public class BemRN {
 			
 			double da = (((bem.getValor_compra() - calvl_residual) * (taxa/ 100))/12)* count;
 			
-			System.out.println(da);
+			System.out.println("eu sei" + da);
 			
 			double prv_bug = (bem.getVida_util() / 2) * 12;
 			System.out.println(prv_bug);
