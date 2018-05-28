@@ -24,6 +24,7 @@ public class Bem implements Serializable {
 	private Long id_usuario;
 	private Double da;
 	private Double vc;
+	private String goup;
 	
 	
 	public Long getId() {
@@ -103,6 +104,12 @@ public class Bem implements Serializable {
 	}
 	public void setVc(Double vc) {
 		this.vc = vc;
+	}
+	public String getGoup() {
+		return goup;
+	}
+	public void setGoup(String goup) {
+		this.goup = goup;
 	}
 	
 	

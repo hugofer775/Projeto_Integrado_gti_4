@@ -195,7 +195,19 @@ public class BemRN {
 		else {
 		bem.setVc(vc);
 		}
-				
+		
+		if(bem.getValor_venda() > bem.getVc()) {
+			bem.setGoup("Ganho");
+		}
+		if(bem.getValor_venda() < bem.getVc()) {
+			bem.setGoup("Perca");
+		}
+		if(bem.getValor_venda() == bem.getVc()) {
+			bem.setGoup("Valor abatido");
+		}
+		if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
+			bem.setGoup("Não foi vendido");
+		}
 		return null;
 		}
 		
@@ -233,7 +245,20 @@ public class BemRN {
 			else {
 			bem.setVc(vc);
 			}
-					
+			
+			if(bem.getValor_venda() > bem.getVc()) {
+				bem.setGoup("Ganho");
+			}
+			if(bem.getValor_venda() < bem.getVc()) {
+				bem.setGoup("Perca");
+			}
+			if(bem.getValor_venda() == bem.getVc()) {
+				bem.setGoup("Valor abatido");
+			}
+			if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
+				bem.setGoup("Não foi vendido");
+			}
+			
 			return null;
 			}
 		else {
@@ -264,6 +289,19 @@ public class BemRN {
 			}
 			else {
 			bem.setVc(vc);
+			}
+			
+			if(bem.getValor_venda() > bem.getVc()) {
+				bem.setGoup("Ganho");
+			}
+			if(bem.getValor_venda() < bem.getVc()) {
+				bem.setGoup("Perca");
+			}
+			if(bem.getValor_venda() == bem.getVc()) {
+				bem.setGoup("Valor abatido");
+			}
+			if(bem.getValor_venda() == null || bem.getValor_venda() == 0) {
+				bem.setGoup("Não foi vendido");
 			}
 					
 			return null;
