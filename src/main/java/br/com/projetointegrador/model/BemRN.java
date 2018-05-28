@@ -40,7 +40,9 @@ public class BemRN {
 		Double valor_taxa = null;
 		
 		Double usa = (double) (bem.getVida_util() - bem.getUsado());
+		System.out.println("-----"+ usa);
 		Double vu = (double) (bem.getVida_util() / 2);
+		System.out.println("---"+ usa);
 		
 		if(usa > vu) {
 			valor_taxa = usa;
@@ -48,11 +50,17 @@ public class BemRN {
 		if(usa < vu) {
 			valor_taxa = vu;
 		}
+		
+		else{
+			valor_taxa = vu;
+		}
+		
 		if(bem.getUsado()  == 0) {
 			valor_taxa = (double) bem.getVida_util();
 		}
 		
-		System.out.println(valor_taxa);
+		
+		System.out.println("aqi >" + valor_taxa);
 		
 		Calendar v = Calendar.getInstance();
 			
@@ -163,12 +171,14 @@ public class BemRN {
 		
 		System.out.println(da);
 		
-		double prv_bug = bem.getVida_util() * 12;
+		double prv_bug = (bem.getVida_util() / 1.5) * 12;
 		System.out.println(prv_bug);
 		
-		double p = valor_taxa * 1.5;
+		double p = (valor_taxa * 1.5) * 12;
 		
-		if(prv_bug < count || p < count) {
+		
+		
+		if(prv_bug < count || p < count || da > bem.getValor_compra()) {
 			bem.setDa(calvl_residual);
 			
 		}
@@ -179,7 +189,7 @@ public class BemRN {
 		
 		double vc = bem.getValor_compra() - da;
 		
-		if(prv_bug < count || p < count) {
+		if(prv_bug < count || p < count || da > bem.getValor_compra()) {
 			bem.setVc(calvl_residual);
 		}
 		else {
@@ -190,6 +200,7 @@ public class BemRN {
 		}
 		
 		if(bem.getTurno()== 3) {
+			System.out.println("bem aqui " + valor_taxa);
 			double taxa = (100/ valor_taxa) * 2;
 			System.out.println(taxa);
 			double calvl_residual = bem.getValor_compra() * (bem.getValor_residual() /100);
@@ -199,12 +210,13 @@ public class BemRN {
 			
 			System.out.println(da);
 			
-			double prv_bug = bem.getVida_util() * 12;
+			double prv_bug = (bem.getVida_util() / 2) * 12;
 			System.out.println(prv_bug);
 			
-			double p = valor_taxa * 2;
+			double p = (valor_taxa * 2) * 12;
+			System.out.println("aqui - > " + p);
 			
-			if(prv_bug < count || p < count) {
+			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
 				bem.setDa(calvl_residual);
 				
 			}
@@ -215,7 +227,7 @@ public class BemRN {
 			
 			double vc = bem.getValor_compra() - da;
 			
-			if(prv_bug < count || p < count) {
+			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
 				bem.setVc(calvl_residual);
 			}
 			else {

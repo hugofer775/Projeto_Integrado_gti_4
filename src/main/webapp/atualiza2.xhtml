@@ -9,6 +9,8 @@
 
 <h:head>
 	<title>Cadastro de bens</title>
+	<h:outputStylesheet library="css" name="styles.css"/>
+	<h:outputScript library="javascript" name="checkPassword.js"/>
 </h:head>
 <h:body>
 	<ui:insert name="header">
@@ -20,7 +22,7 @@
 			<ui:include src="/templates/modelo.xhtml" />
 			</ui:insert>
 		<h:inputHidden value="#{bemMB.bem.id}" />
-			<p:panelGrid columns="4" >
+			<p:panelGrid columns="2" >
 				<f:facet name="header">
 					<p:outputLabel value="Cadastro de bens" />
 				</f:facet>
@@ -28,7 +30,7 @@
 				<p:outputLabel value="Nome" />
 				<p:inputText value="#{bemMB.bem.nome}" />
 				<p:outputLabel value="Data aquisição" />
-				<p:calendar value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
+				<p:calendar id="dt_compra" value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
 				<p:outputLabel value="Valor aquisição" />
 				<p:inputText id="valor_compra" maxlength="7" size="10" value="#{bemMB.bem.valor_compra}" required="true"
 						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
@@ -47,7 +49,7 @@
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{bemMB.bem.vida_util}" />
 				<p:outputLabel value="Data venda" />
-				<p:calendar value="#{bemMB.bem.dt_venda}" showOn="button" />
+				<p:calendar id="dt_venda" value="#{bemMB.bem.dt_venda}" showOn="button" />
 				<p:outputLabel value="Valor Venda" />
 				<p:inputText value="#{bemMB.bem.valor_venda}" />
 				<p:outputLabel value="Turno" />
@@ -59,7 +61,7 @@
 				
 			</p:panelGrid>
 			<br />
-			<p:commandButton value="Gravar" action="#{bemMB.actionUpdate}" />
+			<p:commandButton value="Gravar" onclick="checkPassword(this.form)" action="#{bemMB.actionUpdate}" />
 		</div>
 	</h:form>
 </h:body>

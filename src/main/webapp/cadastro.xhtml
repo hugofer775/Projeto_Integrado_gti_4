@@ -19,7 +19,7 @@
 		<ui:insert name="header">
 			<ui:include src="/templates/modelo.xhtml" />
 		</ui:insert>
-			<p:panelGrid columns="4" >
+			<p:panelGrid columns="2" >
 				<f:facet name="header">
 					<p:outputLabel value="Cadastro de bens" />
 				</f:facet>
@@ -36,8 +36,8 @@
 					</p:inputText>
 				<p:outputLabel value="(%) residual" />
 				<p:inputText id="valor_residual" maxlength="3" size="3" value="#{bemMB.bem.valor_residual}" required="true"
-						requiredMessage="O campo 'Quantidade' é obrigatório" converterMessage="Informe um valor válido para o campo 'Valor_residual'"
-						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
+						requiredMessage="O campo 'Quantidade' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_residual'"
+						validatorMessage="Informe um valor entre 0 e 100 para o campo 'valor_residual'">
 						<f:validateLongRange minimum="0" maximum="100" />
 				</p:inputText>
 				<p:outputLabel value="Usado" />
