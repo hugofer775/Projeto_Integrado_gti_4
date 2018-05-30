@@ -39,24 +39,25 @@ public class BemRN {
 		int count = 0;
 		Double valor_taxa = null;
 		
-		Double usa = (double) (bem.getVida_util() - bem.getUsado());
+		Double usa = (bem.getVida_util() - bem.getUsado());
 		System.out.println("-----"+ usa);
-		Double vu = (double) (bem.getVida_util() / 2);
+		Double vu = (bem.getVida_util() / 2);
 		System.out.println("---"+ usa);
 		
 		if(usa > vu) {
 			valor_taxa = usa;
 		}
+		
 		if(usa < vu) {
 			valor_taxa = vu;
 		}
 		
-		else{
+		if(usa == vu) {
 			valor_taxa = vu;
 		}
 		
 		if(bem.getUsado()  == 0) {
-			valor_taxa = (double) bem.getVida_util();
+			valor_taxa = bem.getVida_util();
 		}
 		
 		
@@ -208,6 +209,13 @@ public class BemRN {
 		if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
 			bem.setGoup("Não foi vendido");
 		}
+		
+		if(bem.getDt_venda() != null){
+			bem.setStatus("Baixado");
+		}
+		if(bem.getDt_venda() == null) {
+			bem.setStatus("Ativo");
+		}
 		return null;
 		}
 		
@@ -258,6 +266,12 @@ public class BemRN {
 			if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
 				bem.setGoup("Não foi vendido");
 			}
+			if(bem.getDt_venda() != null){
+				bem.setStatus("Baixado");
+			}
+			if(bem.getDt_venda() == null) {
+				bem.setStatus("Ativo");
+			}
 			
 			return null;
 			}
@@ -302,6 +316,13 @@ public class BemRN {
 			}
 			if(bem.getValor_venda() == null || bem.getValor_venda() == 0) {
 				bem.setGoup("Não foi vendido");
+			}
+			
+			if(bem.getDt_venda() != null){
+				bem.setStatus("Baixado");
+			}
+			else {
+				bem.setStatus("Ativo");
 			}
 					
 			return null;

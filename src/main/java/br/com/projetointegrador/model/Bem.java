@@ -16,15 +16,17 @@ public class Bem implements Serializable {
 	private Date dt_adiquicao;
 	private Double valor_compra;
 	private int turno;
-	private int vida_util;
+	private Double vida_util;
 	private Date dt_venda;
 	private Double valor_venda;
-	private int usado;
+	private Double usado;
 	private Double valor_residual;
 	private Long id_usuario;
 	private Double da;
 	private Double vc;
 	private String goup;
+	private String status;
+	
 	
 	
 	public Long getId() {
@@ -57,10 +59,10 @@ public class Bem implements Serializable {
 	public void setTurno(int turno) {
 		this.turno = turno;
 	}
-	public int getVida_util() {
+	public Double getVida_util() {
 		return vida_util;
 	}
-	public void setVida_util(int vida_util) {
+	public void setVida_util(Double vida_util) {
 		this.vida_util = vida_util;
 	}
 	public Date getDt_venda() {
@@ -75,10 +77,10 @@ public class Bem implements Serializable {
 	public void setValor_venda(Double valor_venda) {
 		this.valor_venda = valor_venda;
 	}
-	public int getUsado() {
+	public Double getUsado() {
 		return usado;
 	}
-	public void setUsado(int usado) {
+	public void setUsado(Double usado) {
 		this.usado = usado;
 	}
 	public Long getId_usuario() {
@@ -110,6 +112,12 @@ public class Bem implements Serializable {
 	}
 	public void setGoup(String goup) {
 		this.goup = goup;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

@@ -33,9 +33,9 @@ public class BemDAO extends ConnectionFactory {
 			ps.setDouble(3, bem.getValor_compra());
 			System.err.println("aqui3");
 			ps.setInt(4, bem.getTurno());
-			ps.setInt(5, bem.getVida_util());
+			ps.setDouble(5, bem.getVida_util());
 			System.err.println("aqui2");
-			ps.setInt(6, bem.getUsado());
+			ps.setDouble(6, bem.getUsado());
 			ps.setDouble(7, bem.getValor_residual());
 			ps.setLong(8, Login.getId());
 			System.err.println("aqui");
@@ -68,10 +68,10 @@ public class BemDAO extends ConnectionFactory {
 				e.setDt_adiquicao(rs.getDate("dt_adiquicao"));
 				e.setValor_compra(rs.getDouble("valor_compra"));
 				e.setTurno(rs.getInt("turno"));
-				e.setVida_util(rs.getInt("vida_util"));
+				e.setVida_util(rs.getDouble("vida_util"));
 				e.setDt_venda(rs.getDate("dt_venda"));
 				e.setValor_venda(rs.getDouble("valor_venda"));
-				e.setUsado(rs.getInt("usado"));
+				e.setUsado(rs.getDouble("usado"));
 				e.setValor_residual(rs.getDouble("valor_residual"));
 				e.setId_usuario(rs.getLong("id_usuario"));
 				//BemDAO.da(rs.getDate("dt_adiquicao"), rs.getDate("dt_venda") );

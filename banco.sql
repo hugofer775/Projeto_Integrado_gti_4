@@ -13,10 +13,10 @@ CREATE TABLE bem(
 	dt_adiquicao 	DATE NOT NULL,
 	valor_compra 	FLOAT NOT NULL,
     turno 			INT NOT NULL,
-	vida_util 		INT NOT NULL,
+	vida_util 		DOUBLE NOT NULL,
 	dt_venda 		DATE,
 	valor_venda 	FLOAT,
-	usado 			INT,
+	usado 			DOUBLE,
 	valor_residual 	FLOAT,
 	id_usuario  	INT NOT NULL REFERENCES usuario(id)
 );
