@@ -1,15 +1,20 @@
 package br.com.projetointegrador.web;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.projetointegrador.model.Bem;
 import br.com.projetointegrador.model.BemRN;
+import br.com.projetointegrador.relatorio.Relatorio;
+import net.sf.jasperreports.engine.JRException;
 @ManagedBean (name = "bemMB")
 @RequestScoped
 public class BemMB implements Serializable {
@@ -43,6 +48,18 @@ public class BemMB implements Serializable {
 		}
 		return this.listBem;
 	}
+	
+	public void actionRelatorio(){
+		System.out.println("ddddddd");
+		Relatorio report = new Relatorio();
+		if (listBem.size() > 0) {
+			report.getRelatorio(listBem);
+		}else{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não há registros!"));
+		}
+	}
+	
+	
 	
 	public String actionNovo() {
 		this.bem = new Bem();

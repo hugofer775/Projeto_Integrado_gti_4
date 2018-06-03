@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.time.Period;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.projetointegrador.model.Login;
 import br.com.projetointegrador.model.LoginDAO;
@@ -24,6 +26,7 @@ public class LoginMB implements Serializable {
 		
 		if(Login.getCerto() != 0) {
 			login.setCerto((double) 0);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Login realizado com sucesso!"));
 			return "cadastro";
 			
 		}

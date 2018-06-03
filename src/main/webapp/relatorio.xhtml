@@ -39,8 +39,13 @@
 				<h:commandLink>
 					<p:graphicImage value="/publico/imagens/xml.png" width="24"/>
 					<p:dataExporter type="xml" target="tbl" fileName="f" />
-				</h:commandLink>			
+				</h:commandLink>
+				
+				<p:commandButton value="Visualizar Relatório"
+					action="#{bemMB.actionRelatorio}" ajax="false"
+					onclick="this.form.target='_blank'" />		
 			</div>
+			
 			
 			
 			<p:dataTable id="tbl" var="f" value="#{bemMB.selectAll}"
@@ -114,6 +119,7 @@
 			    </h:commandLink>
 				</p:column>
 				</p:dataTable>
+				
 					<a href="cadastro.xhtml" class="btn btn-danger" type="button" style="margin-left: 20px;">Voltar</a>
 	</h:form>
 </h:body>

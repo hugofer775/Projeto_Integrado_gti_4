@@ -197,17 +197,13 @@ public class BemRN {
 		bem.setVc(vc);
 		}
 		
-		if(bem.getValor_venda() > bem.getVc()) {
-			bem.setGoup("Ganho");
-		}
-		if(bem.getValor_venda() < bem.getVc()) {
-			bem.setGoup("Perca");
-		}
-		if(bem.getValor_venda() == bem.getVc()) {
-			bem.setGoup("Valor abatido");
-		}
-		if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
-			bem.setGoup("Não foi vendido");
+		if(bem.getValor_venda() != null) {
+			double gp;
+			
+			gp = bem.getValor_venda() - bem.getVc();
+			bem.setGoup(gp);
+		}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
+			bem.setGoup(null);
 		}
 		
 		if(bem.getDt_venda() != null){
@@ -254,18 +250,15 @@ public class BemRN {
 			bem.setVc(vc);
 			}
 			
-			if(bem.getValor_venda() > bem.getVc()) {
-				bem.setGoup("Ganho");
+			if(bem.getValor_venda() != null) {
+				double gp;
+				
+				gp = bem.getValor_venda() - bem.getVc();
+				bem.setGoup(gp);
+			}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
+				bem.setGoup(null);
 			}
-			if(bem.getValor_venda() < bem.getVc()) {
-				bem.setGoup("Perca");
-			}
-			if(bem.getValor_venda() == bem.getVc()) {
-				bem.setGoup("Valor abatido");
-			}
-			if(bem.getValor_venda() == null  || bem.getValor_venda() == 0) {
-				bem.setGoup("Não foi vendido");
-			}
+			
 			if(bem.getDt_venda() != null){
 				bem.setStatus("Baixado");
 			}
@@ -305,17 +298,13 @@ public class BemRN {
 			bem.setVc(vc);
 			}
 			
-			if(bem.getValor_venda() > bem.getVc()) {
-				bem.setGoup("Ganho");
-			}
-			if(bem.getValor_venda() < bem.getVc()) {
-				bem.setGoup("Perca");
-			}
-			if(bem.getValor_venda() == bem.getVc()) {
-				bem.setGoup("Valor abatido");
-			}
-			if(bem.getValor_venda() == null || bem.getValor_venda() == 0) {
-				bem.setGoup("Não foi vendido");
+			if(bem.getValor_venda() != null) {
+				double gp;
+				
+				gp = bem.getValor_venda() - bem.getVc();
+				bem.setGoup(gp);
+			}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
+				bem.setGoup(null);
 			}
 			
 			if(bem.getDt_venda() != null){
@@ -329,3 +318,4 @@ public class BemRN {
 		}
 	}
 }
+
