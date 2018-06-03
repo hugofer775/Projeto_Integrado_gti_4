@@ -1,6 +1,9 @@
 package br.com.projetointegrador.model;
 
 import java.sql.Date;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -32,6 +35,9 @@ public class BemRN {
 	}
 	
 	public static String da(Bem bem) {
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+		dfs.setDecimalSeparator('.');
+		DecimalFormat formato = new DecimalFormat("0.00", dfs);
 		Calendar c = Calendar.getInstance();
 		Date venda = (Date) bem.getDt_venda();
 		Date compra = (Date) bem.getDt_adiquicao();
@@ -194,14 +200,14 @@ public class BemRN {
 			bem.setVc(calvl_residual);
 		}
 		else {
-		bem.setVc(vc);
+		bem.setVc(Double.valueOf(formato.format(vc)));
 		}
 		
 		if(bem.getValor_venda() != null) {
 			double gp;
 			
 			gp = bem.getValor_venda() - bem.getVc();
-			bem.setGoup(gp);
+			bem.setGoup(Double.valueOf(formato.format(gp)));
 		}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
 			bem.setGoup(null);
 		}
@@ -238,7 +244,7 @@ public class BemRN {
 			}
 			else {
 			
-			bem.setDa(da);
+			bem.setDa(Double.valueOf(formato.format(da)));
 			}
 			
 			double vc = bem.getValor_compra() - da;
@@ -247,14 +253,14 @@ public class BemRN {
 				bem.setVc(calvl_residual);
 			}
 			else {
-			bem.setVc(vc);
+			bem.setVc(Double.valueOf(formato.format(vc)));
 			}
 			
 			if(bem.getValor_venda() != null) {
 				double gp;
 				
 				gp = bem.getValor_venda() - bem.getVc();
-				bem.setGoup(gp);
+				bem.setGoup(Double.valueOf(formato.format(gp)));
 			}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
 				bem.setGoup(null);
 			}
@@ -286,7 +292,7 @@ public class BemRN {
 			}
 			else {
 			
-			bem.setDa(da);
+			bem.setDa(Double.valueOf(formato.format(da)));
 			}
 			
 			double vc = bem.getValor_compra() - da;
@@ -295,14 +301,14 @@ public class BemRN {
 				bem.setVc(calvl_residual);
 			}
 			else {
-			bem.setVc(vc);
+			bem.setVc(Double.valueOf(formato.format(vc)));
 			}
 			
 			if(bem.getValor_venda() != null) {
 				double gp;
 				
 				gp = bem.getValor_venda() - bem.getVc();
-				bem.setGoup(gp);
+				bem.setGoup(Double.valueOf(formato.format(gp)));
 			}if(bem.getValor_venda() == null ||bem.getValor_venda() == 0) {
 				bem.setGoup(null);
 			}
