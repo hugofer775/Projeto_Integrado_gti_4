@@ -50,7 +50,6 @@ public class BemMB implements Serializable {
 	}
 	
 	public void actionRelatorio(){
-		System.out.println("ddddddd");
 		Relatorio report = new Relatorio();
 		if (listBem.size() > 0) {
 			report.getRelatorio(listBem);

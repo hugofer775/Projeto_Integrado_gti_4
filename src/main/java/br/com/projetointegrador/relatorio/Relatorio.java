@@ -36,7 +36,6 @@ public class Relatorio {
 	
 	private HttpServletResponse response;
 	private FacesContext context;
-	private Connection con;
 	
 	public Relatorio() {
 		this.context = FacesContext.getCurrentInstance();
