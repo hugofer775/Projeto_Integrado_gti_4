@@ -183,10 +183,15 @@ public class BemRN {
 		
 		double p = (valor_taxa * 1.5) * 12;
 		
+		double da_residual;
+		
+		da_residual = bem.getValor_compra() - calvl_residual;
+		
+		
 		
 		
 		if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-			bem.setDa(calvl_residual);
+			bem.setDa(da_residual);
 			
 		}
 		else {
@@ -238,8 +243,12 @@ public class BemRN {
 			double p = (valor_taxa * 2) * 12;
 			System.out.println("aqui - > " + p);
 			
+			double da_residual;
+			
+			da_residual = bem.getValor_compra() - calvl_residual;
+			
 			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-				bem.setDa(calvl_residual);
+				bem.setDa(da_residual);
 				
 			}
 			else {
@@ -248,6 +257,7 @@ public class BemRN {
 			}
 			
 			double vc = bem.getValor_compra() - da;
+			
 			
 			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
 				bem.setVc(calvl_residual);
@@ -286,8 +296,12 @@ public class BemRN {
 			double prv_bug = bem.getVida_util() * 12;
 			System.out.println(prv_bug);
 			
+			double da_residual;
+			
+			da_residual = bem.getValor_compra() - calvl_residual;
+			
 			if(prv_bug < count) {
-				bem.setDa(calvl_residual);
+				bem.setDa(da_residual);
 				
 			}
 			else {

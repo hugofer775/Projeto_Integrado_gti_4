@@ -29,9 +29,9 @@
 				
 				<p:outputLabel value="Nome" />
 				<p:inputText value="#{bemMB.bem.nome}" />
-				<p:outputLabel value="Data aquisição" />
+				<p:outputLabel value="Data de compra" />
 				<p:calendar id="dt_compra" value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
-				<p:outputLabel value="Valor aquisição" />
+				<p:outputLabel value="Valor de compra" />
 				<p:inputText id="valor_compra" maxlength="7" size="10" value="#{bemMB.bem.valor_compra}" required="true"
 						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
 						validatorMessage="Informe um valor entre 0,01 e 9999999,99 para o campo 'Preço'">
@@ -44,13 +44,13 @@
 						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
 						<f:validateLongRange minimum="0" maximum="100" />
 				</p:inputText>
-				<p:outputLabel value="Usado" />
+				<p:outputLabel value="Tempo de uso" />
 				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{bemMB.bem.vida_util}" />
-				<p:outputLabel value="Data venda" />
+				<p:outputLabel value="Data de venda" />
 				<p:calendar id="dt_venda" value="#{bemMB.bem.dt_venda}" showOn="button" />
-				<p:outputLabel value="Valor Venda" />
+				<p:outputLabel value="Valor de Venda" />
 				<p:inputText value="#{bemMB.bem.valor_venda}" />
 				<p:outputLabel value="Turno" />
 				<p:selectOneMenu value="#{bemMB.bem.turno}">
