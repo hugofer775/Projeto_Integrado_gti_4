@@ -9,11 +9,6 @@
 
 <h:head>
 	<title>Cadastro de bens</title>
-	<script type="text/javascript">
-            function fechar(form) {
-            	window.close();
-            }
-    </script>
 </h:head>
 <h:body>
 	<ui:insert name="header">
@@ -45,10 +40,10 @@
 						validatorMessage="Informe um valor entre 0 e 100 para o campo 'valor_residual'">
 						<f:validateLongRange minimum="0" maximum="100" />
 				</p:inputText>
-				<p:outputLabel value="Tempo de uso" />
-				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{bemMB.bem.vida_util}" />
+				<p:outputLabel value="Tempo de uso" />
+				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Turno" />
 				<p:selectOneMenu value="#{bemMB.bem.turno}">
 					<f:selectItem itemValue="1" itemLabel="1" />

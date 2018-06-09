@@ -9,7 +9,7 @@ CREATE TABLE usuario(
 
 CREATE TABLE bem(
 	id 				SERIAL PRIMARY KEY,
-	nome 			VARCHAR(60) NOT NULL,
+	nome 			VARCHAR(70) NOT NULL,
 	dt_adiquicao 	DATE NOT NULL,
 	valor_compra 	FLOAT NOT NULL,
 	turno 			INT NOT NULL,
@@ -18,5 +18,6 @@ CREATE TABLE bem(
 	valor_venda 	FLOAT,
 	usado 			FLOAT,
 	valor_residual 	FLOAT,
+	tipo_baixa		VARCHAR(15),
 	id_usuario  	INT NOT NULL REFERENCES usuario(id)
 );

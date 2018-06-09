@@ -223,6 +223,10 @@ public class BemRN {
 		if(bem.getDt_venda() == null) {
 			bem.setStatus("Ativo");
 		}
+		
+		if(bem.getDt_venda() != null && bem.getValor_venda()== 0 || bem.getValor_venda()== null) {
+			bem.setGoup(bem.getVc() - (bem.getVc() *2));
+		}
 		return null;
 		}
 		
@@ -281,7 +285,9 @@ public class BemRN {
 			if(bem.getDt_venda() == null) {
 				bem.setStatus("Ativo");
 			}
-			
+			if(bem.getDt_venda() != null && bem.getValor_venda()== 0 || bem.getValor_venda()== null) {
+				bem.setGoup(bem.getVc() - (bem.getVc() *2));
+			}
 			return null;
 			}
 		else {
@@ -332,6 +338,9 @@ public class BemRN {
 			}
 			else {
 				bem.setStatus("Ativo");
+			}
+			if(bem.getDt_venda() != null && bem.getValor_venda()== 0 || bem.getValor_venda()== null) {
+				bem.setGoup(bem.getVc() - (bem.getVc() *2));
 			}
 					
 			return null;

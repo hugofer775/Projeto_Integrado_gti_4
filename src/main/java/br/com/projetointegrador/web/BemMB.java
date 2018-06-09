@@ -45,10 +45,10 @@ public class BemMB implements Serializable {
 		int ano2 = t.get(Calendar.YEAR);
 		
 		int somainput = 0;
-		somainput = ((mes * 30) + dia + ano);
+		somainput = ((mes * 30) + (ano * 365) + dia);
 		
 		int somadataatual = 0;
-		somadataatual = ((mes2 * 30) + dia2 + ano2);
+		somadataatual = ((mes2 * 30) + (ano2 * 365) + dia2);
 		
 		if (somainput <= somadataatual) {
 			System.out.println("passou aqui--");
@@ -87,13 +87,13 @@ public class BemMB implements Serializable {
 		int anov = v.get(Calendar.YEAR);
 		
 		int somainput = 0;
-		somainput = ((mes * 30) + dia + ano);
+		somainput = ((mes * 30) + (ano * 365) + dia);
 		
 		int somadataatual = 0;
-		somadataatual = ((mes2 * 30) + dia2 + ano2);
+		somadataatual = ((mes2 * 30) + (ano2 * 365) + dia2);
 		
 		int somadatavenda = 0;
-		somadatavenda= ((mesv * 30) + diav + anov);
+		somadatavenda= ((mesv * 30) + (anov * 365) + diav);
 		
 		if(somadatavenda <= somadataatual && somainput <= somadataatual && somadatavenda >= somainput) {
 			return true;
@@ -120,6 +120,9 @@ public class BemMB implements Serializable {
 		if (isValidarUpdate(bem)==true) {
 		if(bem.getTurno() != 0) {
 			bem.setTurno(bem.getTurno());
+		}
+		if(bem.getDt_venda() != null && bem.getValor_venda()== 0 || bem.getValor_venda()== null) {
+			bem.setTipo_baixa("Doação");
 		}
 		new BemRN().update(bem);
 		return "relatorio";

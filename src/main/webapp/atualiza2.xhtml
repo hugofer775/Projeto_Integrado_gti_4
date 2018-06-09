@@ -44,10 +44,10 @@
 						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
 						<f:validateLongRange minimum="0" maximum="100" />
 				</p:inputText>
-				<p:outputLabel value="Tempo de uso" />
-				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Vida útil" />
 				<p:inputText value="#{bemMB.bem.vida_util}" />
+				<p:outputLabel value="Tempo de uso" />
+				<p:inputText value="#{bemMB.bem.usado}" />
 				<p:outputLabel value="Data de venda" />
 				<p:calendar id="dt_venda" value="#{bemMB.bem.dt_venda}" showOn="button" />
 				<p:outputLabel value="Valor de Venda" />
@@ -57,6 +57,13 @@
 					<f:selectItem itemValue="1" itemLabel="1" />
 					<f:selectItem itemValue="2" itemLabel="2" />
 					<f:selectItem itemValue="3" itemLabel="3" />
+				</p:selectOneMenu>
+				<p:outputLabel value="Tipo de baixa" />
+				<p:selectOneMenu value="#{bemMB.bem.tipo_baixa}">
+					<f:selectItem itemValue="" itemLabel="" />
+					<f:selectItem itemValue="Venda" itemLabel="Venda" />
+					<f:selectItem itemValue="Doação" itemLabel="Doação" />
+					<f:selectItem itemValue="Sinistro" itemLabel="Sinistro" />
 				</p:selectOneMenu>
 				
 			</p:panelGrid>

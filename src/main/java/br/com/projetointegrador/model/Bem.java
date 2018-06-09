@@ -21,6 +21,7 @@ public class Bem implements Serializable {
 	private Double valor_venda;
 	private Double usado;
 	private Double valor_residual;
+	private String tipo_baixa;
 	private Long id_usuario;
 	private Double da;
 	private Double vc;
@@ -118,6 +119,12 @@ public class Bem implements Serializable {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getTipo_baixa() {
+		return tipo_baixa;
+	}
+	public void setTipo_baixa(String tipo_baixa) {
+		this.tipo_baixa = tipo_baixa;
 	}
 	
 	
