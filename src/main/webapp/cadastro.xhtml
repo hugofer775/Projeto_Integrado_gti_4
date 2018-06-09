@@ -9,6 +9,11 @@
 
 <h:head>
 	<title>Cadastro de bens</title>
+	<script type="text/javascript">
+            function fechar(form) {
+            	window.close();
+            }
+    </script>
 </h:head>
 <h:body>
 	<ui:insert name="header">
@@ -52,7 +57,7 @@
 				</p:selectOneMenu>
 			</p:panelGrid>
 			<br />
-			<p:commandButton value="Gravar" action="#{bemMB.actionGravar}" />
+			<p:commandButton value="Gravar" action="#{bemMB.actionGravar}" ajax="false"/>
 		</div>
 	</h:form>
 </h:body>

@@ -11,12 +11,12 @@ CREATE TABLE bem(
 	id 				SERIAL PRIMARY KEY,
 	nome 			VARCHAR(60) NOT NULL,
 	dt_adiquicao 	DATE NOT NULL,
-	valor_compra 	DOUBLE NOT NULL,
-    turno 			INT NOT NULL,
-	vida_util 		DOUBLE NOT NULL,
+	valor_compra 	FLOAT NOT NULL,
+	turno 			INT NOT NULL,
+	vida_util 		FLOAT NOT NULL,
 	dt_venda 		DATE,
-	valor_venda 	DOUBLE,
-	usado 			DOUBLE,
+	valor_venda 	FLOAT,
+	usado 			FLOAT,
 	valor_residual 	FLOAT,
 	id_usuario  	INT NOT NULL REFERENCES usuario(id)
 );
