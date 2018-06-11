@@ -54,7 +54,7 @@ public class BemDAO extends ConnectionFactory {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_venda, valor_venda, usado, valor_residual, tipo_baixa, id_usuario FROM bem ORDER BY id";
+		String sql = "SELECT id, nome, dt_adiquicao, valor_compra, turno, vida_util, dt_baixa, valor_venda, usado, valor_residual, tipo_baixa, id_usuario FROM bem ORDER BY id";
 		
 		try {
 			con = open();
@@ -69,7 +69,7 @@ public class BemDAO extends ConnectionFactory {
 				e.setValor_compra(rs.getDouble("valor_compra"));
 				e.setTurno(rs.getInt("turno"));
 				e.setVida_util(rs.getDouble("vida_util"));
-				e.setDt_venda(rs.getDate("dt_venda"));
+				e.setDt_venda(rs.getDate("dt_baixa"));
 				e.setValor_venda(rs.getDouble("valor_venda"));
 				e.setUsado(rs.getDouble("usado"));
 				e.setValor_residual(rs.getDouble("valor_residual"));
@@ -92,7 +92,7 @@ public class BemDAO extends ConnectionFactory {
 	public void update(Bem bem) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql= "UPDATE bem SET nome = ?, dt_adiquicao = ?, valor_compra = ?, turno = ?, vida_util = ?, dt_venda = ?, valor_venda = ?, usado = ?, valor_residual = ?, tipo_baixa = ?" + 
+		String sql= "UPDATE bem SET nome = ?, dt_adiquicao = ?, valor_compra = ?, turno = ?, vida_util = ?, dt_baixa = ?, valor_venda = ?, usado = ?, valor_residual = ?, tipo_baixa = ?" + 
 				"WHERE id = ?";
 		
 		try { 

@@ -14,7 +14,7 @@ CREATE TABLE bem(
 	valor_compra 	FLOAT NOT NULL,
 	turno 			INT NOT NULL,
 	vida_util 		FLOAT NOT NULL,
-	dt_venda 		DATE,
+	dt_baixa 		DATE,
 	valor_venda 	FLOAT,
 	usado 			FLOAT,
 	valor_residual 	FLOAT,

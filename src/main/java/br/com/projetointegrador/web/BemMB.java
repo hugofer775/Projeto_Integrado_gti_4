@@ -117,6 +117,7 @@ public class BemMB implements Serializable {
 	}
 	
 	public String actionUpdate() {
+		if(bem.getDt_venda()!= null) {
 		if (isValidarUpdate(bem)==true) {
 		if(bem.getTurno() != 0) {
 			bem.setTurno(bem.getTurno());
@@ -131,6 +132,15 @@ public class BemMB implements Serializable {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage("msgErroData", new FacesMessage("Data inválida! Verifique as datas e tente novamente"));
 			return null;
+		}
+		}
+		else {
+			if(bem.getTurno() != 0) {
+				bem.setTurno(bem.getTurno());
+			}
+			new BemRN().update(bem);
+			return "relatorio";
+			
 		}
 	}
 	
