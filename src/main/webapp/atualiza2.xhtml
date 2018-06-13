@@ -24,7 +24,7 @@
 		<h:inputHidden value="#{bemMB.bem.id}" />
 			<p:panelGrid columns="2" >
 				<f:facet name="header">
-					<p:outputLabel value="Cadastro de bens" />
+					<p:outputLabel value="Atualização de bens" />
 				</f:facet>
 				
 				<p:outputLabel value="Nome" />
@@ -32,13 +32,13 @@
 				<p:outputLabel value="Data de compra" />
 				<p:calendar id="dt_compra" value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
 				<p:outputLabel value="Valor de compra" />
-				<p:inputText id="valor_compra" maxlength="7" size="10" value="#{bemMB.bem.valor_compra}" required="true"
+				<p:inputText id="valor_compra" maxlength="20" size="20" value="#{bemMB.bem.valor_compra}" required="true"
 						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
-						validatorMessage="Informe um valor entre 0,01 e 9999999,99 para o campo 'Preço'">
-						<f:validateDoubleRange minimum="0.01" maximum="9999999.99" />
+						validatorMessage="Informe um valor entre 0,01 e 999999999,99 para o campo 'Preço'">
+						<f:validateDoubleRange minimum="0.01" maximum="999999999.99" />
 						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
 					</p:inputText>
-				<p:outputLabel value="Valor residual" />
+				<p:outputLabel value="(%) residual" />
 				<p:inputText id="valor_residual" maxlength="3" size="3" value="#{bemMB.bem.valor_residual}" required="true"
 						requiredMessage="O campo 'Quantidade' é obrigatório" converterMessage="Informe um valor válido para o campo 'Valor_residual'"
 						validatorMessage="Informe um valor entre 0 e 100 para o campo 'Valor_residual'">
@@ -48,10 +48,15 @@
 				<p:inputText value="#{bemMB.bem.vida_util}" />
 				<p:outputLabel value="Tempo de uso" />
 				<p:inputText value="#{bemMB.bem.usado}" />
-				<p:outputLabel value="Data de venda" />
+				<p:outputLabel value="Data da baixa" />
 				<p:calendar id="dt_venda" value="#{bemMB.bem.dt_venda}" showOn="button" />
 				<p:outputLabel value="Valor de Venda" />
-				<p:inputText value="#{bemMB.bem.valor_venda}" />
+				<p:inputText id="valor_venda" maxlength="20" size="20" value="#{bemMB.bem.valor_venda}" required="true"
+						requiredMessage="O campo 'valor_venda' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_venda'"
+						validatorMessage="Informe um valor entre 0,01 e 999999999,99 para o campo 'Preço'">
+						<f:validateDoubleRange minimum="0.01" maximum="999999999.99" />
+						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</p:inputText>
 				<p:outputLabel value="Turno" />
 				<p:selectOneMenu value="#{bemMB.bem.turno}">
 					<f:selectItem itemValue="1" itemLabel="1" />

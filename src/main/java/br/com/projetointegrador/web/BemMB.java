@@ -95,7 +95,7 @@ public class BemMB implements Serializable {
 		int somadatavenda = 0;
 		somadatavenda= ((mesv * 30) + (anov * 365) + diav);
 		
-		if(somadatavenda <= somadataatual && somainput <= somadataatual && somadatavenda >= somainput) {
+		if(somainput <= somadataatual && somadatavenda >= somainput) {
 			return true;
 		}
 		

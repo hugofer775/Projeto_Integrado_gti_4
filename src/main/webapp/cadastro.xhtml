@@ -28,9 +28,9 @@
 				<p:outputLabel value="Data de compra" />
 				<p:calendar value="#{bemMB.bem.dt_adiquicao}" showOn="button" />
 				<p:outputLabel value="Valor de compra" />
-				<p:inputText id="valor_compra" maxlength="11" size="12" value="#{bemMB.bem.valor_compra}" required="true"
+				<p:inputText id="valor_compra" maxlength="20" size="20" value="#{bemMB.bem.valor_compra}" required="true"
 						requiredMessage="O campo 'valor_compra' é obrigatório" converterMessage="Informe um valor válido para o campo 'valor_compra'"
-						validatorMessage="Informe um valor entre 0,01 e 9999999,99 para o campo 'Preço'">
+						validatorMessage="Informe um valor entre 0,01 e 999999999,99 para o campo 'Preço'">
 						<f:validateDoubleRange minimum="0.01" maximum="999999999.99" />
 						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
 					</p:inputText>

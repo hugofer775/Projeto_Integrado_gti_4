@@ -76,7 +76,7 @@
 					<h:outputText value="#{f.usado}"/>
 				</p:column>
 				
-				<p:column headerText="Porcentagem Residual" sortBy="f.valor_residual">
+				<p:column headerText="(%) residual" sortBy="f.valor_residual">
 					<h:outputText value="#{f.valor_residual} %"/>
 				</p:column>
 				
@@ -121,6 +121,7 @@
 			    target="#{bemMB.bem.id}"/>
 			    </h:commandLink>
 				</p:column>
+				
 				</p:dataTable>
 				
 					<a href="cadastro.xhtml" class="btn btn-danger" type="button" style="margin-left: 20px;">Voltar</a>

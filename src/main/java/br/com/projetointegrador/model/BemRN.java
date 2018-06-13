@@ -191,7 +191,7 @@ public class BemRN {
 		
 		
 		if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-			bem.setDa(da_residual);
+			bem.setDa(Double.valueOf(formato.format(da_residual)));
 			
 		}
 		else {
@@ -202,7 +202,7 @@ public class BemRN {
 		double vc = bem.getValor_compra() - da;
 		
 		if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-			bem.setVc(calvl_residual);
+			bem.setVc(Double.valueOf(formato.format(calvl_residual)));
 		}
 		else {
 		bem.setVc(Double.valueOf(formato.format(vc)));
@@ -252,7 +252,7 @@ public class BemRN {
 			da_residual = bem.getValor_compra() - calvl_residual;
 			
 			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-				bem.setDa(da_residual);
+				bem.setDa(Double.valueOf(formato.format(da_residual)));
 				
 			}
 			else {
@@ -264,7 +264,7 @@ public class BemRN {
 			
 			
 			if(prv_bug < count || p < count || da > bem.getValor_compra()) {
-				bem.setVc(calvl_residual);
+				bem.setVc(Double.valueOf(formato.format(calvl_residual)));
 			}
 			else {
 			bem.setVc(Double.valueOf(formato.format(vc)));
@@ -307,7 +307,7 @@ public class BemRN {
 			da_residual = bem.getValor_compra() - calvl_residual;
 			
 			if(prv_bug < count) {
-				bem.setDa(da_residual);
+				bem.setDa(Double.valueOf(formato.format(da_residual)));
 				
 			}
 			else {
@@ -318,7 +318,7 @@ public class BemRN {
 			double vc = bem.getValor_compra() - da;
 			
 			if(prv_bug < count) {
-				bem.setVc(calvl_residual);
+				bem.setVc(Double.valueOf(formato.format(calvl_residual)));
 			}
 			else {
 			bem.setVc(Double.valueOf(formato.format(vc)));
